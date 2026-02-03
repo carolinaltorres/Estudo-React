@@ -9,8 +9,13 @@ import useFilterMovies from "../../hooks/useFilterMovies";
 
 const MovieSection = () => {
   const { movies, error, isLoading } = useFetchMovies();
-  const { searchTerm, handleSearch, setSearchTerm, filteredMovies, isCarregando } =
-    useFilterMovies(movies);
+  const {
+    searchTerm,
+    handleSearch,
+    setSearchTerm,
+    filteredMovies,
+    isCarregando,
+  } = useFilterMovies(movies);
 
   return (
     <main>
@@ -30,7 +35,7 @@ const MovieSection = () => {
         <h1 className={styles.titulo}>Em cartaz</h1>
         {(isLoading || isCarregando) && <p>Carregando filmes...</p>}
         {error && <p className={styles.error}>{error}</p>}
-        {!(isLoading || isCarregando) && <MovieList  movies={filteredMovies} />}
+        {!(isLoading || isCarregando) && <MovieList movies={filteredMovies} />}
       </section>
     </main>
   );
